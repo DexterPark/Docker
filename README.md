@@ -1,19 +1,19 @@
 # DexterPark-Docker
-nginx, php7, composer, git ¼³Ä¡
+nginx, php7, composer, git ì„¤ì¹˜
 
 #git
 ```
 git clone https://github.com/DexterPark/Docker.git
 ```
 
-#ºôµåÀü È®ÀÎ»çÇ×
-nodejsÈ¤Àº npmÀ» ¼³Ä¡ÇÏ½Ã·Á¸é Dockerfile³» #install ETC ¿¡¼­ ÁÖ¼®À» ÇØÀçÇÏ¿© ÁÖ¼¼¿ä.
+#ë¹Œë“œì „ í™•ì¸ì‚¬í•­
+nodejsí˜¹ì€ npmì„ ì„¤ì¹˜í•˜ì‹œë ¤ë©´ Dockerfileë‚´ #install ETC ì—ì„œ ì£¼ì„ì„ í•´ì¬í•˜ì—¬ ì£¼ì„¸ìš”.
 ```
 #RUN apt-get install -y nodejs
 #RUN apt-get install -y npm
 ```
 
-ÇÊ¿äÇÑ ÆĞÅ°Áö¸¦ °ñ¶ó¼­ Ãß°¡ÇÏ½Ã°Å³ª »èÁ¦(ÁÖ¼®)Ã³¸® ÇÏ¼¼¿ä.
+í•„ìš”í•œ íŒ¨í‚¤ì§€ë¥¼ ê³¨ë¼ì„œ ì¶”ê°€í•˜ì‹œê±°ë‚˜ ì‚­ì œ(ì£¼ì„)ì²˜ë¦¬ í•˜ì„¸ìš”.
 ```
 RUN apt-get -y --force-yes install php7.0-fpm \
 				   php7.0-common \
@@ -32,33 +32,33 @@ RUN apt-get -y --force-yes install php7.0-fpm \
 #				   php-xdebug 
 ```
 
-#ºôµå
+#ë¹Œë“œ
 ```
 docker build -t dexter-docker:latest .
 docker run -d --name dexter-server -p 80:80 -p 443:443 -P  dexter-docker:latest
 ```
-È¤Àº Docker pull·Îµµ ¹ŞÀ¸½Ç ¼ö ÀÖ½À´Ï´Ù.
+í˜¹ì€ Docker pullë¡œë„ ë°›ìœ¼ì‹¤ ìˆ˜ ìˆìŠµë‹ˆë‹¤.
 ```
-docker push dexterys/docker:latest
+docker pull dexterys/docker:latest
 docker run -d --name dexter-server -p 80:80 -p 443:443 -P  dexter-docker:latest
 ```
 
 
 #Setup
-ÄÁÅ×ÀÌ³Ê »ı¼º ÈÄ setup.sh¸¦ ½ÇÇàÇÏ¿© ÁÖ¼¼¿ä. 
-(ÄÁÅ×ÀÌ³Ê »ı¼ºÈÄ 1È¸¸¸ ½ÇÇàÇÏ¼¼¿ä)
+ì»¨í…Œì´ë„ˆ ìƒì„± í›„ setup.shë¥¼ ì‹¤í–‰í•˜ì—¬ ì£¼ì„¸ìš”. 
+(ì»¨í…Œì´ë„ˆ ìƒì„±í›„ 1íšŒë§Œ ì‹¤í–‰í•˜ì„¸ìš”)
 
-Shell Á¢¼Ó
+Shell ì ‘ì†
 ```
 docker exec -it dexter-server /bin/bash
 
 ```
-setup.sh ½ÇÇà
+setup.sh ì‹¤í–‰
 ```
 /root/setup.sh
 ```
 
-¿î¿µ¿¡ ÇÊ¿äÇÑ ÆÄÀÏµéÀº ¸ğµÎ /data ¿¡ ÀÌµ¿µÇ¾î °ü¸®µË´Ï´Ù.
+ìš´ì˜ì— í•„ìš”í•œ íŒŒì¼ë“¤ì€ ëª¨ë‘ /data ì— ì´ë™ë˜ì–´ ê´€ë¦¬ë©ë‹ˆë‹¤.
 ```
     /data/www
     /data/etc
