@@ -1,4 +1,12 @@
-<H1>WBP Docker</H1><br />
-Á¤»óÀûÀ¸·Î ¼³Ä¡µÇ¾ú½À´Ï´Ù.<br /><br />
-<?php phpinfo(); 
-
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>DexterPark-Server</title>
+ </head>
+ <body>
+	<H1>WBP Docker</H1><br />
+	ì •ìƒì ìœ¼ë¡œ ì„¤ì¹˜ë˜ì—ˆìŠµë‹ˆë‹¤.<br /><br />
+	<?php phpinfo(); 
+ </body>
+</html>
