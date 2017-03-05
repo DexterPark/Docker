@@ -3,8 +3,7 @@ MAINTAINER dexterys@gmail.com
 
 ENV HOME /root
 
-RUN apt-get update && apt-get -y install apt-utils && apt-get --no-install-recommends -y upgrade
-RUN apt-get update --fix-missing
+RUN apt-get update --fix-missing&& apt-get -y install apt-utils && apt-get --no-install-recommends -y upgrade
 
 #set locale
 RUN apt-get install -y language-pack-ko
