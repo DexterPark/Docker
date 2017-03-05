@@ -3,10 +3,10 @@ MAINTAINER dexterys@gmail.com
 
 ENV HOME /root
 
-RUN apt-get update --fix-missing&& apt-get -y install apt-utils && apt-get --no-install-recommends -y upgrade
+RUN apt-get update -qq --fix-missing&& apt-get -y -qq install apt-utils && apt-get --no-install-recommends -y -qq upgrade
 
 #set locale
-RUN apt-get install -y language-pack-ko
+RUN apt-get install -y -qq language-pack-ko
 RUN locale-gen ko_KR.UTF-8
 
 ENV LANG ko_KR.UTF-8
@@ -14,8 +14,8 @@ ENV LANGUAGE ko_KR.UTF-8
 ENV LC_ALL ko_KR.UTF-8
 
 # nginx-php installation
-RUN apt-get -y install php7.0 
-RUN apt-get -y install php7.0-fpm \
+RUN apt-get -y -qq install php7.0 
+RUN apt-get -y -qq install php7.0-fpm \
 			php7.0-common \
 			php7.0-cli \
 			php7.0-mysqlnd \
@@ -32,14 +32,14 @@ RUN apt-get -y install php7.0-fpm \
 #			php-xdebug 
 
 # install nginx
-RUN apt-get install -y nginx-full
+RUN apt-get install -y -qq nginx-full
 
 
 # install ETC
-RUN apt-get install -y curl
-RUN apt-get install -y git
-#RUN apt-get install -y nodejs
-#RUN apt-get install -y npm
+RUN apt-get install -y -qq curl
+RUN apt-get install -y -qq git
+#RUN apt-get install -y -qq nodejs
+#RUN apt-get install -y -qq npm
 
 
 # install composer
@@ -76,11 +76,10 @@ RUN apt-get autoclean
 
 # add build script (also set timezone to Asia/Seoul)
 RUN mkdir -p /root/setup
-ADD build/setup.sh /root/setup.sh
+ADD build/setup.sh /root/setup/setup.sh
 ADD build/index.php /root/setup/index.php
-RUN chmod +x /root/setup.sh
-#RUN (cd /root/setup/; /root/setup/setup.sh)
+RUN chmod +x /root/setup/setup.sh
+RUN (cd /root/setup/; /root/setup/setup.sh)
 
 #VOLUME ["/data"]
-
 #CMD ["/sbin/my_init"]

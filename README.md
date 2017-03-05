@@ -44,20 +44,6 @@ docker run -d --name dexter-server -p 80:80 -p 443:443 -P  dexter-docker:latest
 ```
 
 
-#Setup
-컨테이너 생성 후 setup.sh를 실행하여 주세요. 
-(컨테이너 생성후 1회만 실행하세요)
-
-Shell 접속
-```
-docker exec -it dexter-server /bin/bash
-
-```
-setup.sh 실행
-```
-/root/setup.sh
-```
-
 운영에 필요한 파일들은 모두 /data 에 이동되어 관리됩니다.
 ```
     /data/www

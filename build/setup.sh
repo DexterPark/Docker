@@ -29,12 +29,6 @@ sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/" /etc/php/7.0/fpm/php.ini
 mkdir -p /var/run/php
 chown -R www-data:www-data /var/run/php
 
-#time set
-#apt-get -y install rdate && /usr/bin/rdate -s time.bora.net 
-
-
-
-
 # set WWW public folder
 mkdir -p /data /data/www
 rm -rf /var/www
@@ -49,9 +43,4 @@ ln -s /data/logs/ /var/log/nginx
 mv /etc/nginx /data/etc
 ln -s /data/etc/ /etc/nginx
 
-rm /root/setup.sh
 rm -rf /root/setup
-
-# Run webserver
-/etc/service/nginx/run & 
-/etc/service/phpfpm/run &
