@@ -37,7 +37,9 @@ RUN apt-get -y --force-yes install php7.0-fpm \
 docker build -t dexter-docker:latest .
 docker run -d --name dexter-server -p 80:80 -p 443:443 -P  dexter-docker:latest
 ```
+
 혹은 Docker pull로도 받으실 수 있습니다.
+https://hub.docker.com/r/dexterys/docker/
 ```
 docker pull dexterys/docker:latest
 docker run -d --name dexter-server -p 80:80 -p 443:443 -P  dexter-docker:latest
