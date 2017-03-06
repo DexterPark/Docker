@@ -1,9 +1,9 @@
-# DexterPark-Docker
+# WBP / Docker / web-server
 nginx, php7, composer, git 설치
 
 #git
 ```
-git clone https://github.com/DexterPark/Docker.git
+git clone https://DexterPark@bitbucket.org/wbp/web-server.git
 ```
 
 #빌드전 확인사항
@@ -35,14 +35,18 @@ RUN apt-get -y --force-yes install php7.0-fpm \
 #빌드
 ```
 docker build -t dexter-docker:latest .
-docker run -d --name dexter-server -p 80:80 -p 443:443 -P  dexter-docker:latest
+docker run -d --name web-server -p 80:80 -p 443:443 -P  dexter-docker:latest
 ```
 
 혹은 Docker pull로도 받으실 수 있습니다.
-https://hub.docker.com/r/dexterys/docker/
+https://hub.docker.com/r/dexterys/web-server/
 ```
-docker pull dexterys/docker:latest
-docker run -d --name dexter-server -p 80:80 -p 443:443 -P  dexter-docker:latest
+docker pull dexterys/web-server:latest
+docker run -d --name web-server -p 80:80 -p 443:443 -P  dexter-docker:latest
+```
+
+```
+docker exec -it web-server /bin/bash
 ```
 
 
